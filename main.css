@@ -1,3 +1,21 @@
 .box {
     border: 1px solid 
 }
+
+img {
+    height: 50px;
+    width: 50px;
+}
+
+.followers {
+    border-bottom: 1px solid gray;
+    margin: 10px;
+}
+
+.btn {
+    font-size: 10px !important;
+    border-radius: 20px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 15px;
+}
