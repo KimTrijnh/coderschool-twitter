@@ -1,3 +1,43 @@
-.box {
+/* .box {
     border: 1px solid 
+} */
+
+.top-right a {
+  color: black;
+}
+.top-right a:hover {
+  color: black;
+}
+
+.btn-follow {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(58, 133, 191, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(58, 133, 191, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-follow:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(58, 133, 191, 0.75);
+  border: 2px solid rgba(58, 133, 191, 0.75);
+}
+.small-text {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.tw-color {
+  background-color: lightcyan;
+}
+.bot-right a {
+  color: #4da8c3;
+}
+.bot-right a:hover {
+  color: #19507e;
 }
