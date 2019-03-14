@@ -1,61 +1,160 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Mini Twitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!-- Navbar go here -->
     <nav></nav>
 
     <div class="container">
-        <div class="row">
-
-            <!-- First Colum: Profile & Trending -->
-            <div class="col-3">
-                <div class="profile  border">
-                profile
-                </div>
-                <div class="hastag  border">trending goes here</div>
-            </div>
-
-
-            <!-- second column: input, tweet btn, remainning count/ tweets template -->
-            <div class="col-6 border">
-                <div id="input border">
-                    <input type="text" value="some text here">
-                    <button>Tweet</button>
-                    <span> remainning words</span>
-                </div>
-                <div id="tweets border my-5">
-                        <div class="tweetTemplate d-flex border">
-                            <img class="avatar" src="" alt="">
-                            <div class="tweet-content border">
-                                <p>hello world</p>
-                            <div class="icons border"><span>reply</span><span>Retweet</span>
-                                <span>Like/unlike</span><span>direct Mess</span></div>    
-                            </div>
-                        </div>
-                </div>            
-            </div>
-
-            <!-- Third Column: Ads/followers footer/info of page-->
-            <div class="col-3">
-                <div id="ads" class="border">ads goes here</div>
-                <div id="info"  class="border">Mini twitter 2019 </div>
-            </div>
-
+      <div class="row">
+        <!-- First Colum: Profile & Trending -->
+        <div class="col-3">
+          <div class="profile border">
+            profile
+          </div>
+          <div class="hastag border">trending goes here</div>
         </div>
+
+        <!-- second column: input, tweet btn, remainning count/ tweets template -->
+        <div class="col-6 border">
+          <div id="input border">
+            <input type="text" value="some text here" />
+            <button>Tweet</button>
+            <span> remainning words</span>
+          </div>
+          <div id="tweets border my-5">
+            <div class="tweetTemplate d-flex border">
+              <img class="avatar" src="" alt="" />
+              <div class="tweet-content border">
+                <p>hello world</p>
+                <div class="icons border">
+                  <span>reply</span><span>Retweet</span> <span>Like/unlike</span
+                  ><span>direct Mess</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Column: Ads/followers footer/info of page-->
+        <div class="right-col col-3">
+                <div class="top-right border border-light border-4">
+                        <div class="p-3">
+                            <div class="pt-3 mb-2">
+                                <h4 class="">
+                                    Who to follow
+                                </h4>
+                                <span class='small-text m-0'><a href="#">Refresh</a> ● <a href="#">View all</a></span>
+                            </div>
+                            <div class="">
+                                <div class="media">
+                                    <div class="media-left mt-2">
+                                        <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+                                    </div>
+                                    <div class="media-body p-2">
+                                        <h5 class="media-heading">Nome e cognome</h5>
+                                        <a href="#" class="btn-follow p-1">
+                                            +
+                                            <span class="fas fa-user text-black"></span>
+                                            Follow
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left mt-2">
+                                        <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+                                    </div>
+                                    <div class="media-body p-2">                                    
+                                        <h5 class="media-heading">Nome e cognome</h5>
+                                        <a href="#" class="btn-follow p-1">
+                                            +
+                                            <span class="fas fa-user text-black"></span>
+                                            Follow
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left mt-2">
+                                        <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+                                    </div>
+                                    <div class="media-body p-2">                                      
+                                        <h5 class="media-heading">Nome e cognome</h5>
+                                        <a href="#" class="btn-follow p-1">
+                                            +
+                                            <span class="fas fa-user text-black"></span>
+                                            Follow
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="bot-right tw-color p-3">
+                                    <a href="www.google.it">
+                                      <span class="fas fa-user text-black"></span>
+                                      Find people you know
+                                    </a>
+                                  </div>
+                        </div>
+          <!-- <div id="ads" class="bot-right tw-color border border-light rounded p-3">ads goes here</div> -->
+
+          <div class="row bg-white p-3"></div>
+          
+          
+          <div class="bot-right tw-color d-flex flex-row justify-content-lg-between mb-5 border border-light rounded p-3">
+            <ul class="list-inline ">
+              <li>© 2019 Twitter</li>
+              <li class="list-inline-item"><a href="#">About</a></li>
+              <li class="list-inline-item"><a href="#">Help</a></li>
+              <li class="list-inline-item"><a href="#">Terms</a></li>
+              <li class="list-inline-item"><a href="#">Privacy</a></li>
+              <li class="list-inline-item"><a href="#">Cookies</a></li>
+              <li class="list-inline-item"><a href="#">Ads info</a></li>
+              <li class="list-inline-item"><a href="#">Brand</a></li>
+              <li class="list-inline-item"><a href="#">Blog</a></li>
+              <li class="list-inline-item"><a href="#">Status</a></li>
+              <li class="list-inline-item"><a href="#">Apps</a></li>
+              <li class="list-inline-item"><a href="#">Jobs</a></li>
+              <li class="list-inline-item"><a href="#">Advertise</a></li>
+              <li class="list-inline-item"><a href="#">Businesses</a></li>
+              <li class="list-inline-item"><a href="#">Media</a></li>
+              <li class="list-inline-item"><a href="#">Developers</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
