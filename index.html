@@ -37,29 +37,50 @@
           <div class="hastag border">trending goes here</div>
         </div>
 
-
-            <!-- second column: input, tweet btn, remainning count/ tweets template -->
-            <div class="col-6 border">
-                <div id="input border">
-                    <input type="text" value="some text here">
-                    <button>Tweet</button>
-                    <span> remainning words</span>
+        <!-- second column: input, tweet btn, remainning count/ tweets template -->
+        <div class="col-sm-6">
+                <div class="panel-color panel-info mt-5 pt-3 pb-2 px-3 border border-3">
+                    <div class="panel-heading panel-color mt-3">
+                        <div class="media">
+                            <a class="media-left mr-3" href="#fake">
+                                <img alt="" class="media-object rounded" src="http://placehold.it/35x35">
+                            </a>
+                            <div class="media-body">
+                                <div class="form-group has-feedback has-error">
+                                    <input type="text" class="form-control" id="tweet-input">
+                                    <button class="tw-button pull-right float-right mt-2" onclick="addTweet()"> Tweet </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-1 d-flex justify-content-end" id="char-remaining"> 140 Characters Remaining </div>
+                    </div>
+                    
                 </div>
-                <div id="tweets border my-5">
-                    <div class="tweetTemplate d-flex border">
-                        <img class="avatar" src="" alt="">
-                        <div class="tweet-content border">
-                            <p>hello world</p>
-                            <div class="icons border"><span>reply</span><span>Retweet</span>
-                                <span>Like/unlike</span><span>direct Mess</span></div>
+                <div class="panel-body p-3 border border-3" id="tweets-list">
+                        <div class="media">
+                            <a class="media-left" href="#fake">
+                                <img alt="" class="media-object rounded" src="http://placehold.it/64x64">
+                            </a>
+                            <div class="media-body">
+                                <p class="pl-3 pr-2">This is a test tweet! You should add tweets above this one. It will be super fun and prove that you can build cool apps.</p>
+                                <ul class="d-flex" >
+                                    <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
+                                    <li><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
+                                    <li><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
+                                    <li><a href="#"><span class="fas fa-ellipsis-h tw-fa mx-4"></span></a></li>
+                                </ul>
+                            </div>
+    
                         </div>
                     </div>
-                </div>
-            </div>
+    
+                <br>
+                <br>
+                <br>
 
             <!-- Third Column: Ads/followers footer/info of page-->
         <div class="right-col col-3">
-                <div class="top-right border border-light border-4">
+                <div class="top-right border border-3">
                         <div class="p-3">
                             <div class="pt-3 mb-2">
                                 <h4 class="">
@@ -70,7 +91,7 @@
                             <div class="">
                                 <div class="media">
                                     <div class="media-left mt-2">
-                                        <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+                                        <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
                                     </div>
                                     <div class="media-body p-2">
                                         <h5 class="media-heading">Nome e cognome</h5>
@@ -83,7 +104,7 @@
                                 </div>
                                 <div class="media">
                                     <div class="media-left mt-2">
-                                        <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+                                        <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
                                     </div>
                                     <div class="media-body p-2">                                    
                                         <h5 class="media-heading">Nome e cognome</h5>
@@ -96,7 +117,7 @@
                                 </div>
                                 <div class="media">
                                     <div class="media-left mt-2">
-                                        <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+                                        <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
                                     </div>
                                     <div class="media-body p-2">                                      
                                         <h5 class="media-heading">Nome e cognome</h5>
@@ -116,12 +137,13 @@
                                     </a>
                                   </div>
                         </div>
+          
           <!-- <div id="ads" class="bot-right tw-color border border-light rounded p-3">ads goes here</div> -->
 
           <div class="row bg-white p-3"></div>
           
           
-          <div class="bot-right tw-color d-flex flex-row justify-content-lg-between mb-5 border border-light rounded p-3">
+          <div class="bot-right tw-color d-flex flex-row justify-content-lg-between mb-5 border border-3 rounded p-3">
             <ul class="list-inline ">
               <li>© 2019 Twitter</li>
               <li class="list-inline-item"><a href="#">About</a></li>

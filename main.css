@@ -1,3 +1,52 @@
+/* color: #E6F5FE; */
+.panel-color {
+  background-color: #e6f5fe;
+}
+
+.panel-body {
+  background-color: white;
+}
+
+#char-remaining {
+  color: ;
+}
+
+.border-3 {
+  border-width: 3px !important;
+  color: gray;
+}
+
+.tw-fa {
+  color: grey;
+}
+
+.tw-fa:hover {
+  color: #009ef6;
+}
+
+.media-body ul {
+  list-style: none;
+}
+
+.tw-button {
+  font-size: 15px;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 20px;
+  font-weight: 700px;
+  border-radius: 40px;
+  background: rgb(40, 171, 242);
+  transition: all 0.3s ease 0s;
+  padding: 5px 15px 8px 15px;
+}
+
+.tw-button:hover {
+    text-decoration: none;
+    color: #fff;
+    background:#009EF6;
+    border: 1px solid rgba(58, 133, 191, 0.75);
+}
+=======
 .box {
     border: 1px solid 
 
@@ -17,7 +66,6 @@ input.search{
     right: 10px;
     color: gray;
 }
-
 
 .top-right a {
   color: black;
@@ -45,8 +93,8 @@ input.search{
   border: 2px solid rgba(58, 133, 191, 0.75);
 }
 .small-text {
-    font-size: 12px;
-    font-weight: 400;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .tw-color {
