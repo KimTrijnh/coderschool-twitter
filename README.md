@@ -1,7 +1,8 @@
 # CoderSchool FTW - Mini Twitter
-* You'll be creating a microblogging platform inspired by Twitter. It will be simple, but powerful and awesome *
+*You'll be creating a microblogging platform inspired by Twitter. It will be simple, but powerful and awesome*
 
-Created with love by @team:
+Created with love by @team: Kim, Thuy, Luke, Phong
+
 ## Roles of each member:
 | Members       | Role          | aaaa       |
 | ------------- |:-------------:|:------------- |
