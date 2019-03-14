@@ -6,7 +6,7 @@ You'll be creating a microblogging platform inspired by Twitter. It will be simp
 - `Kim = Scrum Master + Dev` @KimTrijnh
 - `Thuy = Product Owner + Dev` @thuynavy
 - `Vu = scrum Master + Dev` @lvltcode
-- `Phone = Product owner + Dev` @JzPii
+- `Phong = Product owner + Dev` @JzPii
 
 **Required User Stories**
 - [ ] The user should be able to enter a message into a text field.
