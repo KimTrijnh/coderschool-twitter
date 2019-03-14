@@ -3,10 +3,10 @@ Project Brief
 You'll be creating a microblogging platform inspired by Twitter. It will be simple, but powerful and awesome.
 
 **OUR TEAM**
-- `Kim = Scrum Master + Dev`
-- `Thuy = Product Owner + Dev`
-- `Vu = scrum Master + Dev`
-- `Phone = Product owner + Dev`
+- `Kim = Scrum Master + Dev` @KimTrijnh
+- `Thuy = Product Owner + Dev` @thuynavy
+- `Vu = scrum Master + Dev` @lvltcode
+- `Phone = Product owner + Dev` @JzPii
 
 **Required User Stories**
 - [ ] The user should be able to enter a message into a text field.
@@ -19,6 +19,8 @@ You'll be creating a microblogging platform inspired by Twitter. It will be simp
 - [ ] When a "Liked" tweet is retweeted, the new tweet should not be liked.
 - [ ] Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
 - [ ] The user should be able to delete a tweet.
+
+
 **Optional Stories**
 - [ ] The user can click on a hashtag, and only other tweets with that hashtag are shown.
 - [ ] When the user deletes a tweet, all retweets should be deleted.
