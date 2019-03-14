@@ -1,187 +1,210 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Mini Twitter</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="/img/twitter-favicon.png" type="image/x-icon">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Mini Twitter</title>
 
-  <body>
-    <!-- Navbar go here -->
-    <div class="container">
-        <nav class="navbar navbar-expand d-flex justify-content-between px-0">
-            <ul class="navbar-nav ml-0 px-0">
-                <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-igloo"></i> Home<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a href="#" class="nav-link"><i class="far fa-bell"></i> Notifications</a></li>
-                <li class="nav-item active"><a href="#" class="nav-link"><i class="far fa-envelope"></i> Messages</a></li>
-            </ul>
-            <a href="#" class="navbar-brand"><i class="fab fa-twitter"></i></span>
-            </a>
-            <form class="form-inline position-relative">
-                <input type="search" class="form-control search" placeholder="search...">
-                <i class="fas fa-search"></i>
-            </form>
-        </nav>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="/img/twitter-favicon.png" type="image/x-icon">
 
-      <div class="row">
-        <!-- First Colum: Profile & Trending -->
-        <div class="col-3">
-          <div class="profile border">
-            profile
+<body>
+  <!-- Navbar go here -->
+  <div class="container">
+    <nav class="navbar navbar-expand d-flex justify-content-between px-0">
+      <ul class="navbar-nav ml-0 px-0">
+        <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-igloo"></i> Home<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item active"><a href="#" class="nav-link"><i class="far fa-bell"></i> Notifications</a></li>
+        <li class="nav-item active"><a href="#" class="nav-link"><i class="far fa-envelope"></i> Messages</a></li>
+      </ul>
+      <a href="#" class="navbar-brand"><i class="fab fa-twitter"></i></span>
+      </a>
+      <form class="form-inline position-relative">
+        <input type="search" class="form-control search" placeholder="search...">
+        <i class="fas fa-search"></i>
+      </form>
+    </nav>
+
+    <div class="row my-3">
+      <!-- First Colum: Profile & Trending -->
+      <div class="col-md-3">
+
+        <!-- Profile -->
+        <div class="profile border tw-color">
+          <div class="text-center m-3">
+            <a href="#"><img class="img-fluid" alt="" src="/img/twitter-favicon.png" width="100px"></a>
+            <h5>TuiLaTweeter</h5>
           </div>
-          <div class="hastag border">trending goes here</div>
+
+
+          <div class="row p-2">
+            <div class="col-sm-4 bot-right">
+              <small>Tweets</small>
+              <a href="#">999</a>
+            </div>
+            <div class="col-sm-4 bot-right">
+              <small>Following</small>
+              <a href="#">99</a>
+            </div>
+            <div class="col-sm-4 bot-right">
+              <small>Followers</small>
+              <a href="#">9</a>
+            </div>
+          </div>
         </div>
 
-        <!-- second column: input, tweet btn, remainning count/ tweets template -->
-        <div class="col-sm-6">
-                <div class="panel-color panel-info mt-5 pt-3 pb-2 px-3 border border-3">
-                    <div class="panel-heading panel-color mt-3">
-                        <div class="media">
-                            <a class="media-left mr-3" href="#fake">
-                                <img alt="" class="media-object rounded" src="http://placehold.it/35x35">
-                            </a>
-                            <div class="media-body">
-                                <div class="form-group has-feedback has-error">
-                                    <input type="text" class="form-control" id="tweet-input">
-                                    <button class="tw-button pull-right float-right mt-2" onclick="addTweet()"> Tweet </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pb-1 d-flex justify-content-end" id="char-remaining"> 140 Characters Remaining </div>
-                    </div>
-                    
+        <!-- Trending -->
+        <div class="hastag border tw-color mt-2">
+          <h5 class="panel-title">
+            Trending worldwide
+            <small class="bot-right"><a href="#">Change</a></small>
+          </h5>
+        </div>
+
+      </div>
+
+      <!-- second column: input, tweet btn, remainning count/ tweets template -->
+      <div class="col-md-6">
+        <div class="panel-color panel-info mt-5 pt-3 pb-2 px-3 border border-3">
+          <div class="panel-heading panel-color mt-3">
+            <div class="media">
+              <a class="media-left mr-3" href="#fake">
+                <img alt="" class="media-object rounded" src="http://placehold.it/35x35">
+              </a>
+              <div class="media-body">
+                <div class="form-group has-feedback has-error">
+                  <input type="text" class="form-control" id="tweet-input">
+                  <button class="tw-button pull-right float-right mt-2" onclick="addTweet()"> Tweet </button>
                 </div>
-                <div class="panel-body p-3 border border-3" id="tweets-list">
-                        <div class="media">
-                            <a class="media-left" href="#fake">
-                                <img alt="" class="media-object rounded" src="http://placehold.it/64x64">
-                            </a>
-                            <div class="media-body">
-                                <p class="pl-3 pr-2">This is a test tweet! You should add tweets above this one. It will be super fun and prove that you can build cool apps.</p>
-                                <ul class="d-flex" >
-                                    <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
-                                    <li><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
-                                    <li><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
-                                    <li><a href="#"><span class="fas fa-ellipsis-h tw-fa mx-4"></span></a></li>
-                                </ul>
-                            </div>
-    
-                        </div>
-                    </div>
-    
-                <br>
-                <br>
-                <br>
+              </div>
+            </div>
+            <div class="pb-1 d-flex justify-content-end" id="char-remaining"> 140 Characters Remaining </div>
+          </div>
+
+        </div>
+        <div class="panel-body p-3 border border-3" id="tweets-list">
+          <div class="media">
+            <a class="media-left" href="#fake">
+              <img alt="" class="media-object rounded" src="http://placehold.it/64x64">
+            </a>
+            <div class="media-body">
+              <p class="pl-3 pr-2">This is a test tweet! You should add tweets above this one. It will be super fun and
+                prove that you can build cool apps.</p>
+              <ul class="d-flex">
+                <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
+                <li><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
+                <li><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
+                <li><a href="#"><span class="fas fa-ellipsis-h tw-fa mx-4"></span></a></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
 
-            <!-- Third Column: Ads/followers footer/info of page-->
-        <div class="right-col col-3">
-                <div class="top-right border border-3">
-                        <div class="p-3">
-                            <div class="pt-3 mb-2">
-                                <h4 class="">
-                                    Who to follow
-                                </h4>
-                                <span class='small-text m-0'><a href="#">Refresh</a> ● <a href="#">View all</a></span>
-                            </div>
-                            <div class="">
-                                <div class="media">
-                                    <div class="media-left mt-2">
-                                        <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
-                                    </div>
-                                    <div class="media-body p-2">
-                                        <h5 class="media-heading">Nome e cognome</h5>
-                                        <a href="#" class="btn-follow p-1">
-                                            +
-                                            <span class="fas fa-user text-black"></span>
-                                            Follow
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left mt-2">
-                                        <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
-                                    </div>
-                                    <div class="media-body p-2">                                    
-                                        <h5 class="media-heading">Nome e cognome</h5>
-                                        <a href="#" class="btn-follow p-1">
-                                            +
-                                            <span class="fas fa-user text-black"></span>
-                                            Follow
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left mt-2">
-                                        <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
-                                    </div>
-                                    <div class="media-body p-2">                                      
-                                        <h5 class="media-heading">Nome e cognome</h5>
-                                        <a href="#" class="btn-follow p-1">
-                                            +
-                                            <span class="fas fa-user text-black"></span>
-                                            Follow
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="bot-right tw-color p-3">
-                                    <a href="www.google.it">
-                                      <span class="fas fa-user text-black"></span>
-                                      Find people you know
-                                    </a>
-                                  </div>
-                        </div>
-          
-          <!-- <div id="ads" class="bot-right tw-color border border-light rounded p-3">ads goes here</div> -->
+        <br>
+        <br>
+        <br>
+      </div>
 
-          <div class="row bg-white p-3"></div>
-          
-          
-          <div class="bot-right tw-color d-flex flex-row justify-content-lg-between mb-5 border border-3 rounded p-3">
-            <ul class="list-inline ">
-              <li>© 2019 Twitter</li>
-              <li class="list-inline-item"><a href="#">About</a></li>
-              <li class="list-inline-item"><a href="#">Help</a></li>
-              <li class="list-inline-item"><a href="#">Terms</a></li>
-              <li class="list-inline-item"><a href="#">Privacy</a></li>
-              <li class="list-inline-item"><a href="#">Cookies</a></li>
-              <li class="list-inline-item"><a href="#">Ads info</a></li>
-              <li class="list-inline-item"><a href="#">Brand</a></li>
-              <li class="list-inline-item"><a href="#">Blog</a></li>
-              <li class="list-inline-item"><a href="#">Status</a></li>
-              <li class="list-inline-item"><a href="#">Apps</a></li>
-              <li class="list-inline-item"><a href="#">Jobs</a></li>
-              <li class="list-inline-item"><a href="#">Advertise</a></li>
-              <li class="list-inline-item"><a href="#">Businesses</a></li>
-              <li class="list-inline-item"><a href="#">Media</a></li>
-              <li class="list-inline-item"><a href="#">Developers</a></li>
-            </ul>
+      <!-- Third Column: Ads/followers footer/info of page-->
+      <div class="right-col col-md-3">
+        <div class="top-right border border-3">
+          <div class="p-3">
+            <div class="pt-3 mb-2">
+              <h4 class="">
+                Who to follow
+              </h4>
+              <span class='small-text m-0'><a href="#">Refresh</a> ● <a href="#">View all</a></span>
+            </div>
+            <div class="">
+              <div class="media">
+                <div class="media-left mt-2">
+                  <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
+                </div>
+                <div class="media-body p-2">
+                  <h5 class="media-heading">Nome e cognome</h5>
+                  <a href="#" class="btn-follow p-1">
+                    +
+                    <span class="fas fa-user text-black"></span>
+                    Follow
+                  </a>
+                </div>
+              </div>
+              <div class="media">
+                <div class="media-left mt-2">
+                  <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
+                </div>
+                <div class="media-body p-2">
+                  <h5 class="media-heading">Nome e cognome</h5>
+                  <a href="#" class="btn-follow p-1">
+                    +
+                    <span class="fas fa-user text-black"></span>
+                    Follow
+                  </a>
+                </div>
+              </div>
+              <div class="media">
+                <div class="media-left mt-2">
+                  <img src="http://placehold.it/32x32" alt="" class="media-object rounded">
+                </div>
+                <div class="media-body p-2">
+                  <h5 class="media-heading">Nome e cognome</h5>
+                  <a href="#" class="btn-follow p-1">
+                    +
+                    <span class="fas fa-user text-black"></span>
+                    Follow
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="bot-right tw-color p-3">
+            <a href="www.google.it">
+              <span class="fas fa-user text-black"></span>
+              Find people you know
+            </a>
+          </div>
+        </div>
+
+        <!-- <div id="ads" class="bot-right tw-color border border-light rounded p-3">ads goes here</div> -->
+
+        <div class="row bg-white p-3"></div>
+
+
+        <div class="bot-right tw-color d-flex flex-row justify-content-lg-between mb-5 border border-3 rounded p-3">
+          <ul class="list-inline ">
+            <li>© 2019 Twitter</li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Help</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Cookies</a></li>
+            <li class="list-inline-item"><a href="#">Ads info</a></li>
+            <li class="list-inline-item"><a href="#">Brand</a></li>
+            <li class="list-inline-item"><a href="#">Blog</a></li>
+            <li class="list-inline-item"><a href="#">Status</a></li>
+            <li class="list-inline-item"><a href="#">Apps</a></li>
+            <li class="list-inline-item"><a href="#">Jobs</a></li>
+            <li class="list-inline-item"><a href="#">Advertise</a></li>
+            <li class="list-inline-item"><a href="#">Businesses</a></li>
+            <li class="list-inline-item"><a href="#">Media</a></li>
+            <li class="list-inline-item"><a href="#">Developers</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  </div>
+  <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
