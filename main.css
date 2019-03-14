@@ -46,7 +46,7 @@
     background:#009EF6;
     border: 1px solid rgba(58, 133, 191, 0.75);
 }
-=======
+
 .box {
     border: 1px solid 
 
@@ -54,11 +54,15 @@
 
 .nav-link {
     /* font-size: 0.8rem; */
+    color: #009EF6;
+}
+.navbar-brand {
+  color: rgb(20, 39, 187);
 }
 input.search{
     /* height: 2rem; */
     border-radius: 50px;
-    border: 1px solid #4A9ADE;
+    border: 1px solid #009EF6;
 }
 
 .fa-search {
