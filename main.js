@@ -12,7 +12,7 @@ function Tweet (id, text, retweetID, isLike) {
     this.isLike = false
 }
 
-tweetBtn.addEventListener('click', addTweet);
+//tweetBtn.addEventListener('click', addTweet);
 function addTweet() {
 let tweet = new Tweet();
 tweet.id = id++;
@@ -20,7 +20,6 @@ tweet.text = tweetInput.value;
 tweets.push(tweet);
 console.log(tweets);
 render();
-
 }
 
 function render() {
