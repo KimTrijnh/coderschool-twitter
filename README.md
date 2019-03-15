@@ -16,7 +16,8 @@ Created with love by @team: Kim, Thuy, Luke, Phong
 | ------------- |:-------------:| -----:    |
 | Kim        | aaaa | aaaa |
 | Thuy | aaaa      | aaaa    |
-| Luke             | aaaa      | aaaa |
+| Luke             | feature/hashtag & anchor;       | Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
+The user can click on a hashtag, and only other tweets with that hashtag are shown. |
 | Phong       |   aaaa    | aaaa |
   
 # Scrum master's checklist:
