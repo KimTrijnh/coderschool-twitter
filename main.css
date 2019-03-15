@@ -11,6 +11,10 @@
   /* color: ; */
 }
 
+.middot {
+    font-size: 12px;
+}
+
 .border-3 {
   border-width: 3px !important;
   color: gray;
