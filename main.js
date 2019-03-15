@@ -1,4 +1,34 @@
 
+/* Character Remaining */
+
+const maxCharacter = 140;
+let charRemaining = maxCharacter; 
+tweetInput.addEventListener('input',userInput);
+
+let userInput = () => {
+    let tweetLength = tweetInput.value.length;
+    charRemaining = maxCharacter - tweetLength;
+    renderChar()
+}
+
+function renderChar() {
+let count = document.getElementById('char-remaining');
+count.innerHTML = `${charRemaining} characters remaining ` 
+ if (charRemaining < 0) {
+     count.classList.add('text-danger')
+     count.classList.remove('text-warning')}
+if (charRemaining == 0) {
+    count.classList.add('text-warning')
+    count.classList.remove ('text-danger')
+}
+ if (charRemaining > 0) {
+     count.classList.remove('text-danger','text-warning')
+ } 
+}
+
+/* Character Remaining */
+=======
+
 
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
@@ -116,4 +146,5 @@ function renderHash() {
 }
 
 renderHash();
+
 
