@@ -1,7 +1,3 @@
-
-
-
-
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
@@ -10,6 +6,8 @@ let id = 0;
 
 
 let tweets = [];
+let stringInput;
+let hashes = [];
 
 //localStorage.setItem('tweetsArray', tweetsData)
 //let tweets = localStorage.getItem('tweetsArray');
@@ -22,16 +20,47 @@ function Tweet (id, text, retweetId, isLike) {
     this.isLike = false
 }
 
+function returnHashtag(str) {
+  let stringList = str.split(" ");
+  let re1 = /##/;
+  let re2 = /#/;
+  for (let i = 0; i < stringList.length; i++) {
+    if (re1.test(stringList[i])) {
+      hashes.push(stringList[i].slice(2));
+    } else if (re2.test(stringList[i])) {
+      hashes.push(stringList[i].slice(1));
+    }
+  }
+  return hashes;
+}
+
+function renderHash(hashtags) {
+  document.getElementById("trending").innerHTML = hashtags
+    .map(
+      hashtag => `
+  <h6 class="mb-0"><a href="#">#${hashtag}</a></h6>
+  <small class="text-muted">${Math.floor(
+    Math.random() * (1500 + 1) + 500
+  )}K Tweets</small>`
+    )
+    .join("");
+}
+
 //tweetBtn.addEventListener('click', addTweet);
 function addTweet() {
-let tweet = new Tweet();
-tweet.id = id++;
-tweet.text = tweetInput.value;
-tweets.push(tweet);
-console.log(tweets);
-tweetInput.value = '';
-render();
-
+  let tweet = new Tweet();
+  tweet.id = id++;
+  stringInput = tweetInput.value;
+  let tags = []
+  tags.push(stringInput);
+  for (let j = 0; j <= tags.length; j++) {
+    renderHash(returnHashtag(tags[j]));
+  }
+  tweet.text = tweetInput.value;
+  tweets.push(tweet);
+  console.log(tweets);
+  tweetInput.value = '';
+  render();
 }
 
 function retweet(i) {
@@ -110,40 +139,5 @@ if (charRemaining == 0) {
 }
 
 /* Character Remaining */
-
-
-/*****ANCHOR HASHTAG****/
-let stringInput = tweetInput;
-// let stringInput = 'tweetInput #let stringInput = ##tweetInput';
-
-function returnHashtag (str) {
-    let stringList = str.split(' ');
-    let re1 = /##/;
-    let re2 = /#/;
-    let hash = [];
-    for (let i = 0; i < stringList.length; i++){
-      if (re1.test(stringList[i])) {
-        hash.push(stringList[i].slice(2));
-      }
-      else if (re2.test(stringList[i])) {
-        hash.push(stringList[i].slice(1))
-      }
-    }
-    return hash
-}
-
-let hashtags = returnHashtag(stringInput);
-
-function renderHash() {
-  document.getElementById(
-    "trending"
-  ).innerHTML = hashtags.map(
-    hashtag => `
-    <h6 class="mb-0"><a href="#">#${hashtag}</a></h6>
-    <small class="text-muted">${Math.floor(Math.random() * (1500 + 1) + 500)}K Tweets</small>`
-  ).join('');
-}
-
-renderHash();
 
 
