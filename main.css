@@ -6,7 +6,9 @@
 .panel-body {
   background-color: white;
 }
-
+.word-break {
+  word-wrap: break-word;
+}
 #char-remaining {
   /* color: ; */
 }
