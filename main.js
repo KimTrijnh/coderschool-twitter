@@ -1,14 +1,20 @@
+
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
 let id = 0;
 
+
 let tweets = [];
-function Tweet (id, text, retweetID, isLike) {
+
+//localStorage.setItem('tweetsArray', tweetsData)
+//let tweets = localStorage.getItem('tweetsArray');
+
+function Tweet (id, text, retweetId, isLike) {
     this.id = 1;
     this.text = 'Hello world';
     this.imgUrl = null;
-    this.retweetID = null;
+    this.retweetId = 0;
     this.isLike = false
 }
 
@@ -19,11 +25,49 @@ tweet.id = id++;
 tweet.text = tweetInput.value;
 tweets.push(tweet);
 console.log(tweets);
+tweetInput.value = '';
 render();
+
+}
+
+function retweet(i) {
+let retweetedTweet = tweets[i];
+//console.log(retweetedTweet);
+retweetedTweet.retweetId = retweetedTweet.retweetId + 1;
+retweetedTweet.isLike = false;
+console.log(retweetedTweet);
+
+
+let rtIndex = tweets.findIndex(t => t.id == tweets[i].id);
+console.log(rtIndex);
+
+
+//update tweets array to the new array that having the retweedted tweet next to the one just retweet.
+tweets.splice(rtIndex, 0, retweetedTweet);
+render();
+
+// //create a retweeted one  
+// let tweet = tweets[i];
+// tweet.retweetId ++;
+// tweet.isLike = false;
+
+// let retweetedTweet = tweets.findIndex(t => t.id= tweets[i].id);
+// console.log(retweetedTweet);
+// //console.log(retweetedTweet);
+// //tweets.splice(indexOf)
+// // tweets.push(tweet);
+// // console.log(tweets);
+// render();
+}
+
+//function clear all
+function clear() {
+    id=0;
+    tweets = [];
+    render();
 }
 
 function render() {
-
     //render to tweet-list html
     tweetList.innerHTML = tweets.map( tweet => 
          `<div class="media">
@@ -34,7 +78,7 @@ function render() {
           <p class="pl-3 pr-2 ">${tweet.text}</p>
           <ul class="d-flex">
             <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
-            <li><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
+            <li id="retweet" onclick="retweet(${tweets.indexOf(tweet)})"><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
             <li><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
             <li><a href="#"><span class="fas fa-ellipsis-h tw-fa mx-4"></span></a></li>
           </ul>
@@ -42,6 +86,7 @@ function render() {
 
       </div>`).join('');
 }
+
 
 
 
