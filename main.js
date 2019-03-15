@@ -27,7 +27,6 @@ if (charRemaining == 0) {
 }
 
 /* Character Remaining */
-=======
 
 
 let tweetBtn = document.getElementById('tweetBtn');
