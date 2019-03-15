@@ -88,7 +88,7 @@ const maxCharacter = 140;
 let charRemaining = maxCharacter; 
 tweetInput.addEventListener('input',userInput);
 
-let userInput = () => {
+function userInput() {
     let tweetLength = tweetInput.value.length;
     charRemaining = maxCharacter - tweetLength;
     renderChar()
