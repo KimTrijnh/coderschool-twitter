@@ -14,11 +14,16 @@ Created with love by @team: Kim, Thuy, Luke, Phong
 ## The Backlog (SM):
 | Members       | General     | Note  |
 | ------------- |:-------------:| -----:    |
-| Kim        | aaaa | aaaa |
-| Thuy | aaaa      | aaaa    |
+| Kim        | Create tweet & retweet | The user should be able to enter a message into a text field.
+The user should be able to press "Tweet" and see the message pop in below the text box.
+The user should be able to "Retweet". Clicking Retweet immediately inserts a copy of that tweet below the original tweet. |
+| Thuy | feature/like     | The user should be able to "Like". When "Like" is clicked, the text should change to "Unlike".
+When "Unlike" is clicked, the text should change to "Like".    |
 | Luke             | feature/hashtag & anchor;       | Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
 The user can click on a hashtag, and only other tweets with that hashtag are shown. |
-| Phong       |   aaaa    | aaaa |
+| Phong       |   Count remaining characters    | The user should see a "count" that displays how many more characters the user has remaining, counting down from 140.
+Upon tweeting, the characters remaining text should reset back to 140.
+The application should disallow text of greater than 140 characters. |
   
 # Scrum master's checklist:
 | Todo       | Done     |
