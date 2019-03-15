@@ -2,6 +2,7 @@
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
+let tweetNum = document.getElementById('tweetNum');
 let id = 0;
 
 
@@ -37,27 +38,14 @@ retweetedTweet.retweetId = retweetedTweet.retweetId + 1;
 retweetedTweet.isLike = false;
 console.log(retweetedTweet);
 
-
 let rtIndex = tweets.findIndex(t => t.id == tweets[i].id);
 console.log(rtIndex);
 
-
-//update tweets array to the new array that having the retweedted tweet next to the one just retweet.
+//update tweets array to the new array that having 
+//the retweedted tweet next to the one just retweet.
 tweets.splice(rtIndex, 0, retweetedTweet);
 render();
 
-// //create a retweeted one  
-// let tweet = tweets[i];
-// tweet.retweetId ++;
-// tweet.isLike = false;
-
-// let retweetedTweet = tweets.findIndex(t => t.id= tweets[i].id);
-// console.log(retweetedTweet);
-// //console.log(retweetedTweet);
-// //tweets.splice(indexOf)
-// // tweets.push(tweet);
-// // console.log(tweets);
-// render();
 }
 
 //function clear all
@@ -85,6 +73,10 @@ function render() {
         </div>
 
       </div>`).join('');
+
+    //render numbers of tweets
+    tweetNum.innerText = tweets.length;
+
 }
 
 
