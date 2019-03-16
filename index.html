@@ -10,7 +10,9 @@
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="shortcut icon" href="/img/twitter-favicon.png" type="image/x-icon">
+  <!-- moment JS -->
+  <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+  <link rel="shortcut icon" href="/img/twitter-favicon.png" type="image/x-icon"> 
 
 <body>
   <!-- Navbar go here -->
@@ -103,6 +105,7 @@
                 <li><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
                 <li><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
                 <li><a href="#"><span class="fas fa-ellipsis-h tw-fa mx-4"></span></a></li>
+                <li onclick="delTweet()"><a href="#"><span class="far fa-trash-alt mx-4"></span></a></li>
               </ul>
             </div>
 
