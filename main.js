@@ -1,27 +1,28 @@
-let tweetBtn = document.getElementById('tweetBtn');
-let tweetInput = document.getElementById('tweet-input');
-let tweetList = document.getElementById('tweets-list');
-let tweetNum = document.getElementById('tweetNum');
+let tweetBtn = document.getElementById("tweetBtn");
+let tweetInput = document.getElementById("tweet-input");
+let tweetList = document.getElementById("tweets-list");
+let tweetNum = document.getElementById("tweetNum");
 let id = 0;
 
 let tweets = [];
-let stringInput;
 let hashes = [];
+let tweetObj = {};
+let tweetContent = [];
 
 //localStorage.setItem('tweetsArray', tweetsData)
 //let tweets = localStorage.getItem('tweetsArray');
 
-function Tweet (id, text, retweetId, isLike) {
-    this.id = 0;
-    this.text = 'Hello world';
-    this.time = Date.now();
-    this.imgUrl = null;
-    this.retweetId = 0;
-    this.isLike = false
+function Tweet(id, text, retweetId, isLike) {
+  this.id = 0;
+  this.text = "Hello world";
+  this.time = Date.now();
+  this.imgUrl = null;
+  this.retweetId = 0;
+  this.isLike = false;
 }
 
-function returnHashtag(str) {
-  let stringList = str.split(" ");
+function returnHashtag() {
+  let stringList = tweetInput.value.split(" ");
   let re1 = /##/;
   let re2 = /#/;
   for (let i = 0; i < stringList.length; i++) {
@@ -34,37 +35,30 @@ function returnHashtag(str) {
   return hashes;
 }
 
-function renderHash(hashtags) {
-  document.getElementById("trending").innerHTML = hashtags
-    .map(
-      hashtag => `
+
+function renderHash() {
+  let hashtags = returnHashtag();
+    document.getElementById("trending").innerHTML = hashtags.map(
+        hashtag => `
   <h6 class="mb-0"><a href="#">#${hashtag}</a></h6>
   <small class="text-muted">${Math.floor(
     Math.random() * (1500 + 1) + 500
   )}K Tweets</small>`
-    )
-    .join("");
+      )
+      .join("");
 }
 
 //tweetBtn.addEventListener('click', addTweet);
 function addTweet() {
   let tweet = new Tweet();
   tweet.id = id++;
-  stringInput = tweetInput.value;
-  let tags = []
-  tags.push(stringInput);
-
+  tweetContent.push(tweetInput.value);
   tweet.text = tweetInput.value;
   tweets.push(tweet);
-  console.log(tweets);
-  tweetInput.value = '';
+  renderHash();
+  tweetInput.value = "";
   render();
-  for (let j = 0; j <= tags.length; j++) {
-    renderHash(returnHashtag(tags[j]));
-  }
-  
 }
-
 
 function retweet(i) {
   //console.log(i);
@@ -168,5 +162,3 @@ if (charRemaining == 0) {
 }
 
 /* Character Remaining */
-
-
