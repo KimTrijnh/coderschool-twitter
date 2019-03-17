@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
@@ -6,10 +9,15 @@ let tweetNum = document.getElementById('tweetNum');
 let id = 0;
 
 let tweets = [];
+<<<<<<< HEAD
 let imgUrlArr = [];
 function getTime() {
 return Date.now();
 }
+=======
+let stringInput;
+let hashes = [];
+>>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
 
 //localStorage.setItem('tweetsArray', tweetsData)
 //let tweets = localStorage.getItem('tweetsArray');
@@ -23,6 +31,7 @@ function Tweet (id, text, retweetId, isLike) {
     this.isLike = false
 }
 
+<<<<<<< HEAD
 
 function addTweet() {
 //set inital values
@@ -38,6 +47,49 @@ render();
 
 //reset input
 tweetInput.value = '';
+=======
+function returnHashtag(str) {
+  let stringList = str.split(" ");
+  let re1 = /##/;
+  let re2 = /#/;
+  for (let i = 0; i < stringList.length; i++) {
+    if (re1.test(stringList[i])) {
+      hashes.push(stringList[i].slice(2));
+    } else if (re2.test(stringList[i])) {
+      hashes.push(stringList[i].slice(1));
+    }
+  }
+  return hashes;
+}
+
+function renderHash(hashtags) {
+  document.getElementById("trending").innerHTML = hashtags
+    .map(
+      hashtag => `
+  <h6 class="mb-0"><a href="#">#${hashtag}</a></h6>
+  <small class="text-muted">${Math.floor(
+    Math.random() * (1500 + 1) + 500
+  )}K Tweets</small>`
+    )
+    .join("");
+}
+
+//tweetBtn.addEventListener('click', addTweet);
+function addTweet() {
+  let tweet = new Tweet();
+  tweet.id = id++;
+  stringInput = tweetInput.value;
+  let tags = []
+  tags.push(stringInput);
+  for (let j = 0; j <= tags.length; j++) {
+    renderHash(returnHashtag(tags[j]));
+  }
+  tweet.text = tweetInput.value;
+  tweets.push(tweet);
+  console.log(tweets);
+  tweetInput.value = '';
+  render();
+>>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
 }
 
 
@@ -116,3 +168,36 @@ function render() {
     tweetNum.innerText = tweets.length;
 }
 
+<<<<<<< HEAD
+=======
+/* Character Remaining */
+
+const maxCharacter = 140;
+let charRemaining = maxCharacter; 
+tweetInput.addEventListener('input',userInput);
+
+function userInput() {
+    let tweetLength = tweetInput.value.length;
+    charRemaining = maxCharacter - tweetLength;
+    renderChar()
+}
+
+function renderChar() {
+let count = document.getElementById('char-remaining');
+count.innerHTML = `${charRemaining} characters remaining ` 
+ if (charRemaining < 0) {
+     count.classList.add('text-danger')
+     count.classList.remove('text-warning')}
+if (charRemaining == 0) {
+    count.classList.add('text-warning')
+    count.classList.remove ('text-danger')
+}
+ if (charRemaining > 0) {
+     count.classList.remove('text-danger','text-warning')
+ } 
+}
+
+/* Character Remaining */
+
+
+>>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
