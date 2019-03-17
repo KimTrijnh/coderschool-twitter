@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
@@ -9,15 +5,8 @@ let tweetNum = document.getElementById('tweetNum');
 let id = 0;
 
 let tweets = [];
-<<<<<<< HEAD
-let imgUrlArr = [];
-function getTime() {
-return Date.now();
-}
-=======
 let stringInput;
 let hashes = [];
->>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
 
 //localStorage.setItem('tweetsArray', tweetsData)
 //let tweets = localStorage.getItem('tweetsArray');
@@ -31,23 +20,6 @@ function Tweet (id, text, retweetId, isLike) {
     this.isLike = false
 }
 
-<<<<<<< HEAD
-
-function addTweet() {
-//set inital values
-let tweet = new Tweet();
-let url = tweetInput.value.match(/https:.*\.jpg|https:.*\.png/i);
-tweet.id = id++;
-tweet.text = tweetInput.value;
-tweet.imgUrl = url;
-imgUrlArr.push(url);
-tweets.push(tweet);
-console.log(tweets);
-render();
-
-//reset input
-tweetInput.value = '';
-=======
 function returnHashtag(str) {
   let stringList = str.split(" ");
   let re1 = /##/;
@@ -81,17 +53,17 @@ function addTweet() {
   stringInput = tweetInput.value;
   let tags = []
   tags.push(stringInput);
-  for (let j = 0; j <= tags.length; j++) {
-    renderHash(returnHashtag(tags[j]));
-  }
+
   tweet.text = tweetInput.value;
   tweets.push(tweet);
   console.log(tweets);
   tweetInput.value = '';
   render();
->>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
+  for (let j = 0; j <= tags.length; j++) {
+    renderHash(returnHashtag(tags[j]));
+  }
+  
 }
-
 
 
 function retweet(i) {
@@ -168,8 +140,6 @@ function render() {
     tweetNum.innerText = tweets.length;
 }
 
-<<<<<<< HEAD
-=======
 /* Character Remaining */
 
 const maxCharacter = 140;
@@ -200,4 +170,3 @@ if (charRemaining == 0) {
 /* Character Remaining */
 
 
->>>>>>> b44bc8563de9db95500d551a26a6fe264262eb8f
