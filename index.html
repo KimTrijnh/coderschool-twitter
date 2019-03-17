@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   
-
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -83,8 +82,10 @@
               </a>
               <div class="media-body">
                 <div class="form-group has-feedback has-error">
-                  <input type="text" class="form-control" id="tweet-input"  placeholder="what's in your mind?">
-                  <button class="tw-button pull-right float-right mt-2" onclick="addTweet()"> Tweet </button>
+
+                  <textarea type="text" class="form-control" id="tweet-input" ></textarea>
+                  <button id="tweetBtn" class="tw-button pull-right float-right mt-2" onclick="addTweet()" > Tweet </button>
+
                 </div>
               </div>
             </div>
@@ -93,23 +94,7 @@
 
         </div>
         <div class="panel-body p-3 border border-3" id="tweets-list">
-          <div class="media">
-            <a class="media-left" href="#fake">
-              <img alt="" class="media-object rounded" src="http://placehold.it/64x64">
-            </a>
-            <div class="media-body">
-              <p class="pl-3 pr-2">This is a test tweet! You should add tweets above this one. It will be super fun and
-                prove that you can build coo.</p>
-              <ul class="d-flex">
-                <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
-                <li><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
-                <li><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
-                <li><a href="#"><span class="fas fa-ellipsis-h tw-fa mx-4"></span></a></li>
-                <li onclick="delTweet()"><a href="#"><span class="far fa-trash-alt mx-4"></span></a></li>
-              </ul>
-            </div>
-
-          </div>
+          
         </div>
 
         <br>
