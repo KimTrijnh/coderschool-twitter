@@ -7,12 +7,18 @@ let id = 0;
 
 let tweets = [];
 let imgUrlArr = [];
-function getTime() {
-return Date.now();
-}
 
 //localStorage.setItem('tweetsArray', tweetsData)
 //let tweets = localStorage.getItem('tweetsArray');
+
+function checkEmtyInput()  { 
+  if(tweetInput.value == '') { 
+    console.log(tweetInput.innerHTML)
+    tweetBtn.disabled = true;
+  } else { tweetBtn.disabled = false}
+}
+
+
 
 function Tweet (id, text, retweetId, isLike) {
     this.id = 0;
@@ -20,7 +26,7 @@ function Tweet (id, text, retweetId, isLike) {
     this.time = Date.now();
     this.imgUrl = null;
     this.retweetId = 0;
-    this.isLike = false
+    this.isLike = false;
 }
 
 
@@ -46,6 +52,7 @@ function retweet(i) {
   //console.log(i);
 let reTweet = new Tweet();
 //set time, like and retweetId for the retweeted tweet
+
 reTweet.id = tweets[i].id;
 reTweet.text = tweets[i].text;
 reTweet.imgUrl = tweets[i].imgUrl;
@@ -74,6 +81,7 @@ console.log(tweets);
 }
 
 
+
 //function clear all
 function clear() {
     id=0;
@@ -85,8 +93,12 @@ function render() {
     //render tweets to html
     tweetList.innerHTML = tweets.map( tweet => {
       let imgHtml ='';
+      let likeStyle = '';
       if(tweet.imgUrl !== null) {
         imgHtml = `<img class="img-fluid" src="${tweet.imgUrl[0]}">`
+      };
+      if(tweet.isLike) {
+        likeStyle =`style="color: red"`;
       };
       let tweetHtml = `<div class="media">
       <a class="media-left" href="#fake">
@@ -99,7 +111,8 @@ function render() {
           <li><a href="#"><span class="far fa-clock mr-4 ml-0"></span> ${moment(tweet.time).fromNow()}</a></li>
           <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
           <li onclick="retweet(${tweets.indexOf(tweet)})"><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
-          <li onclick="toggleLike()"><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
+          <li ><a href="#"><span onclick="toggleLike(${tweets.indexOf(tweet)})" class="fas fa-heart tw-fa mx-4"
+          ${likeStyle}></span></a></li>
           <li onclick="delTweet(${tweets.indexOf(tweet)})"><a href="#"><span class="far fa-trash-alt mx-4"></span></a></li>
         </ul>
       </div>
@@ -116,3 +129,7 @@ function render() {
     tweetNum.innerText = tweets.length;
 }
 
+function toggleLike(i) {
+  tweets[i].isLike = !tweets[i].isLike;
+ render();
+}
