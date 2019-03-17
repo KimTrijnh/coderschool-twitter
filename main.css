@@ -6,12 +6,6 @@
 .panel-body {
   background-color: white;
 }
-.word-break {
-  word-wrap: break-word;
-}
-#char-remaining {
-  /* color: ; */
-}
 
 .border-3 {
   border-width: 3px !important;

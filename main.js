@@ -1,11 +1,12 @@
+
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
 let tweetNum = document.getElementById('tweetNum');
+
 let id = 0;
 let tweets = [];
 let imgUrlArr = [];
-
 
 fetchTweets();
 async function fetchTweets() {
@@ -24,6 +25,11 @@ async function fetchTweets() {
   
 }
 
+let hashes = [];
+let tweetObj = {};
+let tweetContent = [];
+
+
 async function postTweets() {
   const rawResponse = await fetch('https://api.myjson.com/bins/iglny', {
     method: 'PUT',
@@ -40,6 +46,7 @@ async function postTweets() {
 
 
 
+
 function Tweet (id, text, retweetId, isLike) {
     this.id = 0;
     this.text = 'Hello world';
@@ -47,6 +54,34 @@ function Tweet (id, text, retweetId, isLike) {
     this.imgUrl = null;
     this.retweetId = 0;
     this.isLike = false;
+
+}
+
+function returnHashtag() {
+  let stringList = tweetInput.value.split(" ");
+  let re1 = /##/;
+  let re2 = /#/;
+  for (let i = 0; i < stringList.length; i++) {
+    if (re1.test(stringList[i])) {
+      hashes.push(stringList[i].slice(2));
+    } else if (re2.test(stringList[i])) {
+      hashes.push(stringList[i].slice(1));
+    }
+  }
+  return hashes;
+}
+
+
+function renderHash() {
+  let hashtags = returnHashtag();
+    document.getElementById("trending").innerHTML = hashtags.map(
+        hashtag => `
+  <h6 class="mb-0"><a href="#">#${hashtag}</a></h6>
+  <small class="text-muted">${Math.floor(
+    Math.random() * (1500 + 1) + 500
+  )}K Tweets</small>`
+      )
+      .join("");
 }
 
 
@@ -56,18 +91,18 @@ console.log(id);
 let tweet = new Tweet();
 let url = tweetInput.value.match(/https:.*\.jpg|https:.*\.png/i);
 tweet.id = id + 1;
+tweetContent.push(tweetInput.value);
 tweet.text = tweetInput.value;
 tweet.imgUrl = url;
 imgUrlArr.push(url);
 tweets.push(tweet);
-
+renderHash();
 render();
 postTweets();
 //reset input
 tweetInput.value = '';
+
 }
-
-
 
 function retweet(i) {
 let reTweet = new Tweet();
@@ -148,9 +183,39 @@ function render() {
     tweetNum.innerText = tweets.length;
 }
 
+
 function toggleLike(i) {
   tweets[i].isLike = !tweets[i].isLike;
  render();
 }
 
 
+=======
+/* Character Remaining */
+
+const maxCharacter = 140;
+let charRemaining = maxCharacter; 
+tweetInput.addEventListener('input',userInput);
+
+function userInput() {
+    let tweetLength = tweetInput.value.length;
+    charRemaining = maxCharacter - tweetLength;
+    renderChar()
+}
+
+function renderChar() {
+let count = document.getElementById('char-remaining');
+count.innerHTML = `${charRemaining} characters remaining ` 
+ if (charRemaining < 0) {
+     count.classList.add('text-danger')
+     count.classList.remove('text-warning')}
+if (charRemaining == 0) {
+    count.classList.add('text-warning')
+    count.classList.remove ('text-danger')
+}
+ if (charRemaining > 0) {
+     count.classList.remove('text-danger','text-warning')
+ } 
+}
+
+/* Character Remaining */
