@@ -190,7 +190,6 @@ function toggleLike(i) {
 }
 
 
-=======
 /* Character Remaining */
 
 const maxCharacter = 140;
