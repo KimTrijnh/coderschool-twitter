@@ -11,13 +11,14 @@ let hashes = [];
 //localStorage.setItem('tweetsArray', tweetsData)
 //let tweets = localStorage.getItem('tweetsArray');
 
-function Tweet (id, text, retweetId, isLike) {
+function Tweet (id, text, retweetId, isLike, hash) {
     this.id = 0;
     this.text = 'Hello world';
     this.time = Date.now();
     this.imgUrl = null;
     this.retweetId = 0;
-    this.isLike = false
+    this.isLike = false;
+    this.hash = null;
 }
 
 function returnHashtag(str) {
@@ -58,10 +59,15 @@ function addTweet() {
   tweets.push(tweet);
   console.log(tweets);
   tweetInput.value = '';
-  render();
+
+  if( charRemaining >= 0) {
+//do nothing
+render();
   for (let j = 0; j <= tags.length; j++) {
     renderHash(returnHashtag(tags[j]));
   }
+  }
+  
   
 }
 
@@ -123,7 +129,7 @@ function render() {
           <li><a href="#"><span class="far fa-clock mr-4 ml-0"></span> ${moment(tweet.time).fromNow()}</a></li>
           <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
           <li onclick="retweet(${tweets.indexOf(tweet)})"><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
-          <li onclick="toggleLike()"><a href="#"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
+          <li ><a href="#" onclick="toggleLike(${this})"><span class="fas fa-heart tw-fa mx-4"></span></a></li>
           <li onclick="delTweet(${tweets.indexOf(tweet)})"><a href="#"><span class="far fa-trash-alt mx-4"></span></a></li>
         </ul>
       </div>
@@ -170,3 +176,21 @@ if (charRemaining == 0) {
 /* Character Remaining */
 
 
+// tag friend
+//tweetInput.addEventListener('change', changeColor)
+
+
+// function changeColor() {
+//   console.log(tweetInput.value)
+//   var str = tweetInput.value;
+//   if(tweetInput.value.length >10) {
+//     tweetInput.innerHTML = `${str.slice(0,10)} + <a> ${str.slice(10)}</a>}`
+   
+//   }
+// }
+function toggleLike(i) {
+  i.isLike = !i.isLike;
+  if(i.isLike) {
+    console.log(i);
+  }
+}
