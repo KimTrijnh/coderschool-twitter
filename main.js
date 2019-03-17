@@ -1,12 +1,23 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
 let tweetNum = document.getElementById('tweetNum');
+<<<<<<< HEAD
+=======
+
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 let id = 0;
 let tweets = [];
 let imgUrlArr = [];
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 fetchTweets();
 async function fetchTweets() {
   let url = `https://api.myjson.com/bins/iglny`;
@@ -22,6 +33,41 @@ async function fetchTweets() {
   id = Math.max(...idArr);
   render();
   
+<<<<<<< HEAD
+=======
+}
+
+let hashes = [];
+let tweetObj = {};
+let tweetContent = [];
+
+
+async function postTweets() {
+  const rawResponse = await fetch('https://api.myjson.com/bins/iglny', {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(tweets)
+  });
+  const content = await rawResponse.json();
+
+  console.log(content);
+};
+
+
+
+
+function Tweet (id, text, retweetId, isLike) {
+    this.id = 0;
+    this.text = 'Hello world';
+    this.time = Date.now();
+    this.imgUrl = null;
+    this.retweetId = 0;
+    this.isLike = false;
+
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 }
 
 async function postTweets() {
@@ -50,21 +96,49 @@ function Tweet (id, text, retweetId, isLike) {
 }
 
 
+<<<<<<< HEAD
+=======
+function renderHash() {
+  let hashtags = returnHashtag();
+    document.getElementById("trending").innerHTML = hashtags.map(
+        hashtag => `
+  <h6 class="mb-0"><a href="#">#${hashtag}</a></h6>
+  <small class="text-muted">${Math.floor(
+    Math.random() * (1500 + 1) + 500
+  )}K Tweets</small>`
+      )
+      .join("");
+}
+
+
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 function addTweet() {
 console.log(id);
 //set inital values
 let tweet = new Tweet();
 let url = tweetInput.value.match(/https:.*\.jpg|https:.*\.png/i);
 tweet.id = id + 1;
+<<<<<<< HEAD
+=======
+tweetContent.push(tweetInput.value);
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 tweet.text = tweetInput.value;
 tweet.imgUrl = url;
 imgUrlArr.push(url);
 tweets.push(tweet);
+<<<<<<< HEAD
 
+=======
+renderHash();
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 render();
 postTweets();
 //reset input
 tweetInput.value = '';
+<<<<<<< HEAD
+=======
+
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 }
 
 
@@ -148,9 +222,29 @@ function render() {
     tweetNum.innerText = tweets.length;
 }
 
+<<<<<<< HEAD
 function toggleLike(i) {
   tweets[i].isLike = !tweets[i].isLike;
  render();
+=======
+
+function toggleLike(i) {
+  tweets[i].isLike = !tweets[i].isLike;
+ render();
+}
+
+
+/* Character Remaining */
+
+const maxCharacter = 140;
+let charRemaining = maxCharacter; 
+tweetInput.addEventListener('input',userInput);
+
+function userInput() {
+    let tweetLength = tweetInput.value.length;
+    charRemaining = maxCharacter - tweetLength;
+    renderChar()
+>>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 }
 
 
