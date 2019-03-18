@@ -1,13 +1,7 @@
-body {
-  background: black;
-  color: white;
-}
+
 
 body {
-background-image: url('https://images5.alphacoders.com/423/thumb-1920-423529.jpg');
-background-repeat: no-repeat;
-background-position: center center;
-background-size: cover;
+background-color: black !important;
 } 
 /* color: #E6F5FE; */
 .panel-color {
