@@ -1,24 +1,13 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 let tweetBtn = document.getElementById('tweetBtn');
 let tweetInput = document.getElementById('tweet-input');
 let tweetList = document.getElementById('tweets-list');
 let tweetNum = document.getElementById('tweetNum');
-<<<<<<< HEAD
-=======
-
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 let id = 0;
 let tweets = [];
 let imgUrlArr = [];
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 fetchTweets();
+
 async function fetchTweets() {
   let url = `https://api.myjson.com/bins/iglny`;
   // await response of fetch call
@@ -29,12 +18,15 @@ async function fetchTweets() {
 
   //setting data here
   tweets = data;
-  let idArr = tweets.map(tweet => tweet.id);
-  id = Math.max(...idArr);
+  if(tweets.length !== 0) {
+    let idArr = tweets.map(tweet => tweet.id);
+    id = Math.max(...idArr);
+  } else {
+    id = 0;
+  }
+
   render();
   
-<<<<<<< HEAD
-=======
 }
 
 let hashes = [];
@@ -53,7 +45,7 @@ async function postTweets() {
   });
   const content = await rawResponse.json();
 
-  console.log(content);
+  //console.log(content);
 };
 
 
@@ -66,38 +58,22 @@ function Tweet (id, text, retweetId, isLike) {
     this.imgUrl = null;
     this.retweetId = 0;
     this.isLike = false;
-
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 }
 
-async function postTweets() {
-  const rawResponse = await fetch('https://api.myjson.com/bins/iglny', {
-    method: 'PUT',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(tweets)
-  });
-  const content = await rawResponse.json();
-
-  console.log(content);
-};
-
-
-
-function Tweet (id, text, retweetId, isLike) {
-    this.id = 0;
-    this.text = 'Hello world';
-    this.time = Date.now();
-    this.imgUrl = null;
-    this.retweetId = 0;
-    this.isLike = false;
+function returnHashtag() {
+  let stringList = tweetInput.value.split(" ");
+  let re1 = /##/;
+  let re2 = /#/;
+  for (let i = 0; i < stringList.length; i++) {
+    if (re1.test(stringList[i])) {
+      hashes.push(stringList[i].slice(2));
+    } else if (re2.test(stringList[i])) {
+      hashes.push(stringList[i].slice(1));
+    }
+  }
+  return hashes;
 }
 
-
-<<<<<<< HEAD
-=======
 function renderHash() {
   let hashtags = returnHashtag();
     document.getElementById("trending").innerHTML = hashtags.map(
@@ -111,34 +87,27 @@ function renderHash() {
 }
 
 
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 function addTweet() {
-console.log(id);
 //set inital values
 let tweet = new Tweet();
 let url = tweetInput.value.match(/https:.*\.jpg|https:.*\.png/i);
+
 tweet.id = id + 1;
-<<<<<<< HEAD
-=======
-tweetContent.push(tweetInput.value);
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 tweet.text = tweetInput.value;
 tweet.imgUrl = url;
+console.log(id);
+console.log(tweet);
+tweetContent.push(tweetInput.value);
+
 imgUrlArr.push(url);
 tweets.push(tweet);
-<<<<<<< HEAD
 
-=======
-renderHash();
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
-render();
+console.log(tweets);
+fetchTweets();
 postTweets();
+renderHash();
 //reset input
 tweetInput.value = '';
-<<<<<<< HEAD
-=======
-
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 }
 
 
@@ -156,7 +125,7 @@ let rtIdArr = tweets.filter( tweet => tweet.id == tweets[i].id ).map(tweet => tw
  reTweet.retweetId = Math.max(...rtIdArr) + 1;
 
 tweets.splice(i+1, 0, reTweet);
-render();
+fetchTweets();
 postTweets();
 
 }
@@ -167,8 +136,8 @@ if(tweets[i].retweetId !== 0) {
 } else { 
   tweets = tweets.filter(tweet => tweet.id !== tweets[i].id);
 }
-console.log(tweets);
-render();
+
+fetchTweets();
 postTweets();
 
 }
@@ -195,7 +164,7 @@ function render() {
       };
       let tweetHtml = `<div class="media border p-3">
       <a class="media-left" href="#fake">
-        <img alt="" class="media-object rounded" src="http://placehold.it/64x64" >
+        <img alt="" class="media-object rounded" src="https://pbs.twimg.com/profile_images/2385573551/anonymous_400x400.jpg" width="35px">
       </a>
       <div class="media-body">
         <p class="pl-3 pr-2 ">${tweet.text}</p>
@@ -222,11 +191,6 @@ function render() {
     tweetNum.innerText = tweets.length;
 }
 
-<<<<<<< HEAD
-function toggleLike(i) {
-  tweets[i].isLike = !tweets[i].isLike;
- render();
-=======
 
 function toggleLike(i) {
   tweets[i].isLike = !tweets[i].isLike;
@@ -244,9 +208,22 @@ function userInput() {
     let tweetLength = tweetInput.value.length;
     charRemaining = maxCharacter - tweetLength;
     renderChar()
->>>>>>> a5aacd56049f0c29174d43993ee5bb37f6c75abc
 }
 
+function renderChar() {
+  let count = document.getElementById('char-remaining');
+  count.innerHTML = `${charRemaining} characters remaining ` 
+   if (charRemaining < 0) {
+       count.classList.add('text-danger')
+       count.classList.remove('text-warning')}
+  if (charRemaining == 0) {
+      count.classList.add('text-warning')
+      count.classList.remove ('text-danger')
+  }
+   if (charRemaining > 0) {
+       count.classList.remove('text-danger','text-warning')
+   } 
+  }
 
 // function changeColor() {
 //   console.log(tweetInput.value)
