@@ -45,7 +45,7 @@ async function postTweets() {
   });
   const content = await rawResponse.json();
 
-  //console.log(content);
+  console.log(content);
 };
 
 
@@ -95,16 +95,13 @@ let url = tweetInput.value.match(/https:.*\.jpg|https:.*\.png/i);
 tweet.id = id + 1;
 tweet.text = tweetInput.value;
 tweet.imgUrl = url;
-console.log(id);
-console.log(tweet);
 tweetContent.push(tweetInput.value);
 
 imgUrlArr.push(url);
 tweets.push(tweet);
-
 console.log(tweets);
-fetchTweets();
 postTweets();
+fetchTweets();
 renderHash();
 //reset input
 tweetInput.value = '';
@@ -125,8 +122,9 @@ let rtIdArr = tweets.filter( tweet => tweet.id == tweets[i].id ).map(tweet => tw
  reTweet.retweetId = Math.max(...rtIdArr) + 1;
 
 tweets.splice(i+1, 0, reTweet);
-fetchTweets();
+
 postTweets();
+fetchTweets();
 
 }
 
@@ -137,9 +135,8 @@ if(tweets[i].retweetId !== 0) {
   tweets = tweets.filter(tweet => tweet.id !== tweets[i].id);
 }
 
-fetchTweets();
 postTweets();
-
+fetchTweets();
 }
 
 
@@ -194,7 +191,8 @@ function render() {
 
 function toggleLike(i) {
   tweets[i].isLike = !tweets[i].isLike;
- render();
+  postTweets();
+  fetchTweets();
 }
 
 
@@ -225,8 +223,3 @@ function renderChar() {
    } 
   }
 
-// function changeColor() {
-//   console.log(tweetInput.value)
-//   var str = tweetInput.value;
-//   if(tweetInput.value.length >10) {
-//     tweetInput.innerHTML = `${str.slice(0,10)} + <a> ${str.slice(10)}</a>}`
