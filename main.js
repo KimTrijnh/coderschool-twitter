@@ -167,8 +167,7 @@ function render() {
         <p class="pl-3 pr-2 ">${tweet.text}</p>
         <div id="tweetImg" class="text-center py-2">${imgHtml}</div>
           <ul class="d-flex">
-          <li><a href="#"><span class="far fa-clock mr-4 ml-0"></span> ${moment(tweet.time).fromNow()}</a></li>
-          <li><a href="#"><span class="fas fa-share tw-fa mr-4 ml-0"></span></a></li>
+          <li><a href="#"><span class="far fa-clock mx-2 "></span> ${moment(tweet.time).fromNow()}</a></li>
           <li onclick="retweet(${tweets.indexOf(tweet)})"><a href="#"><span class="fas fa-retweet tw-fa mx-4"></span></a></li>
           <li ><a href="#"><span onclick="toggleLike(${tweets.indexOf(tweet)})" class="fas fa-heart tw-fa mx-4"
           ${likeStyle}></span></a></li>
