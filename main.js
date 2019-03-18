@@ -51,14 +51,18 @@ async function postTweets() {
 
 
 
-function Tweet (id, text, retweetId, isLike) {
+function Tweet (id, text, retweetId, isLike, hashtags) {
     this.id = 0;
     this.text = 'Hello world';
     this.time = Date.now();
     this.imgUrl = null;
     this.retweetId = 0;
     this.isLike = false;
+    this.hagstag = null;
 }
+let newT = new  Tweet();
+console.log(newT);
+
 
 function returnHashtag() {
   let stringList = tweetInput.value.split(" ");
@@ -91,7 +95,7 @@ function addTweet() {
 //set inital values
 let tweet = new Tweet();
 let url = tweetInput.value.match(/https:.*\.jpg|https:.*\.png/i);
-
+let hagstag = #bbc
 tweet.id = id + 1;
 tweet.text = tweetInput.value;
 tweet.imgUrl = url;
@@ -105,8 +109,9 @@ fetchTweets();
 renderHash();
 //reset input
 tweetInput.value = '';
-}
 
+
+}
 
 
 function retweet(i) {

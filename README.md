@@ -35,7 +35,7 @@ Created with love by @team: Kim, Thuy, Luke, Phong
 | Setting standup schedule/method | processing |
 
 
-## View online at: https://thirsty-tesla-3c0a76.netlify.com/
+## View online at: https://best-twitter-yet.netlify.com/
   
 ## Video Walkthrough
 
